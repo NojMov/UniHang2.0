@@ -1,0 +1,34 @@
+{
+  "name": "unihang",
+  "version": "1.0.0",
+  "description": "web app, social media, project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NojMov/UniHang2.0.git"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "social",
+    "media",
+    "project"
+  ],
+  "author": "Dondre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NojMov/UniHang2.0/issues"
+  },
+  "homepage": "https://github.com/NojMov/UniHang2.0#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15"
+  }
+}
