@@ -1,26 +1,26 @@
 const express = require('express');
-//const mysql = require("mysql");
+const mysql = require("mysql");
 const ejs = require("ejs");
 
 //express app
 const app = new express();
 
 //database connection config
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user: 'root',
-//     password: ''
-    
-// });
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'root123',
+    database: 'unihangDb',
+});
 
 // //connection with the DB
-// db.connect((err) => {
-//     if (err) {
-//         throw err;
-//     }else{
-//         console.log(`Successfully connected to the DB`)
-//     }
-// })
+db.connect((err) => {
+    if (err) {
+        throw err;
+    }else{
+        console.log(`Successfully connected to the DB`)
+    }
+})
 
 // Initialize Body Parser Middleware to parse data sent by users in the request object
 app.use(express.json());
