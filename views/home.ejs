@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniHang Home</title>
 
-    
+    <link rel="stylesheet" href="../public/css/home.css">
 </head>
 <body>
     <header>
@@ -25,22 +25,22 @@
         <section class="container">
             <!-- picture of user goes here and src will be
             filled with the source of the picture. Just a place holder atm -->
-            <img src="" alt="Picture of user">
+            <img src="../public/media/img/uni.jpg" alt="Placeholder Pic">
 
-            <p id="name"><!--Name of user will go here, just a place holder atm-->
-
+            <p id="name">
+                <%=user.fname%> &nbsp; <%=user.lname%>
             </p>
         </section>
 
         <section class="container">
             <h2>Major/Minor</h2>
-            <p id="major"><!--Major will go here, just a place holder atm-->
-            
+            <p id="major">
+                <%=user.major%>
             </p>
 
-            <h2>Interests</h2>
-            <p id="interests"><!--Interests will go here, just place holder atm-->
-            
+            <h2>Bio</h2>
+            <p id="bio">
+                <%=user.bio%>
             </p>
         </section>
 

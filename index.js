@@ -35,7 +35,31 @@ app.get('/', (req, res) => {
     res.render("../views/landing.ejs")
 });
 
+app.post("/newuser", (req, res) => {
+    let data = {fname: req.body.fn, lname: req.body.ln, email: req.body.e,
+        major: req.body.m};
+    
+    let sql = `INSERT INTO users SET ?`;
+    let query = db.query(sql, data, (err, result) => {
+        if (err){
+            throw err;
+        }
+        res.send("things were saved")
+        console.log("it saved");
+    });
+});
 
+app.get("/home", (req, res) => {
+    let sql = `SELECT * FROM users`;
+    db.query(sql, (err, result) => {
+        if (err) {
+            throw err;
+            
+        }
+        res.render("/home", { user: result});
+        console.log("it worked");
+    });
+});
 
 app.get('/home', (req, res) => {
     res.render('../views/home.ejs')
