@@ -10,40 +10,92 @@
 </head>
 <body>
     <header>
-        <h1>UniHang</h1>
+        
+        <a href="/">
+            <img src="../public/media/img/unihang_logo.jpg" alt="UniHang" class="logo">
+        </a>
+
         <nav>
             <ul>
                 <li><a href="/home">Home</a></li>
-                <li><a href="/events">Events</a></li>
-                <li><a href="/orgs">Orgs</a></li>
-                <li><a href="/landing">Log Out</a></li>
+                <li><a href="/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="container">
-            <!-- picture of user goes here and src will be
-            filled with the source of the picture. Just a place holder atm -->
-            <img src="../public/media/img/uni.jpg" alt="Placeholder Pic">
-
-            <p id="name">
-                <%=user.fname%> &nbsp; <%=user.lname%>
-            </p>
+            <h2>What We're About</h2>
+            <div id="aboutus">
+                Helping bring University students come together!
+                <br>
+                Students from all over can join the fun that students from other universities
+                are having too! This web application is about finding organizations/clubs to 
+                join and finding events to go to. We at UniHang hope you can find what you are
+                looking for! 
+            </div>
         </section>
 
         <section class="container">
-            <h2>Major/Minor</h2>
-            <p id="major">
-                <%=user.major%>
-            </p>
-
-            <h2>Bio</h2>
-            <p id="bio">
-                <%=user.bio%>
-            </p>
+            <img src="../public/media/img/uni.jpg" alt="Sea Urchins" id="uni">
+            <div id="funfacts">
+                Fun fact! Did you know?
+                <br>
+                Uni (oo-nee) is Japanese for sea urchin gonads.
+                <br>
+                You can pronouce Uni however you want to. It is all the same to us!
+            </div>
         </section>
 
+        <section class="container">
+            <h2>Create an Org</h2>
+            <form action="/createorg/" id="org_creation" method="post">
+                <div>
+                  <label for="oname">Name of Org:</label>
+                  <input type="text" id="org" name="orgname" placeholder="e.g GrizzGang">
+                </div>
+                <div>
+                  <label for="odetails">Org Details:</label>
+                  <input type="text" id="odetails" name="details" placeholder="e.g we like bears(max characters 255)">
+                </div>
+                <div>
+                    <input type="submit" value="Submit" id="button">
+                </div>
+              </form>
+        </section>
+
+        <div class="butsect">
+            <form action="/readOrgs" method="get" class="read-but">
+                <input type="submit" value="See Orgs" class="button"/>
+            </form>
+        </div>
+
+        <section class="container">
+            <h2>Create an Event</h2>
+            <form action="/createevent/" id="event_creation" method="post">
+                <div>
+                  <label for="ename">Name of Event:</label>
+                  <input type="text" name="evname" placeholder="e.g hangout sesh">
+                </div>
+                <div>
+                  <label for="edetails">Event Details:</label>
+                  <input type="text" name="evdetails" placeholder="e.g we going to eat(max characters 255)">
+                </div>
+                <div>
+                    <label for="edate">Date of Event:</label>
+                    <input type="text" id="date" name="thedate" placeholder="e.g year/month/day">
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+              </form>
+        </section>
+
+        <div class="butsect">
+            <form action="/readEvents/" method="get" class="read-but">
+                <input type="submit" value="See Events" class="button"/>
+            </form>
+        </div>
     </main>
     
     <hr>

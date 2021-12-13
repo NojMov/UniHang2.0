@@ -16,7 +16,7 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/orgs">Orgs</a></li>
-                <li><a href="/landing">Log Out</a></li>
+                <li><a href="/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>
@@ -24,7 +24,41 @@
     <main>
         <section>
             <h2>Events</h2>
+            <div>
+                <ul class="list-group">
+                    <%e1.forEach((item)=>{%>
+                    <li class="list-group-item">
+                      id: <%=item.id%> &nbsp; Name: <%= item.ename%> &nbsp; Email:
+                      <%=item.edetails%> &nbsp; Date: <%=item.edate%>
+                    </li>
+                    <%});%>
+                  </ul>
+            </div>
 
+        </section>
+
+        <section>
+            <h2>Update Event Details</h2>
+            <form action="/updateevent/" method="post">
+                <label for="eventId">Search By Org ID:</label>
+                <input type="text" name="eventId" placeholder="Event ID" required>
+                <br>
+                <label for="updateEDate">Enter New Date</label>
+                <input type="text" name="updateEDate" placeholder="e.g yyyy/mm/dd" required>
+                <br>
+                <label for="updateEDetails">Enter New details</label>
+                <input type="text" name="updateEDetails" placeholder="Details" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <h2>Delete Event</h2>
+            <form action="/deleteevent/" method="post">
+                <label for="eIdent">Search By Org ID:</label>
+                <input type="text" name="eIdent" placeholder="Enter the Events ID" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
         </section>
 
         <button>Add an Event</button>

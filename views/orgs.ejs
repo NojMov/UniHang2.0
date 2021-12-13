@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniHang Organizations</title>
+    <link rel="stylesheet" href="../public/css/organizations.css">
 
 </head>
 <body>
@@ -15,7 +16,7 @@
                 <li><a href="/home">Home</a></li>
                 <li><a href="/events">Events</a></li>
                 <li><a href="/orgs">Orgs</a></li>
-                <li><a href="/landing">Log Out</a></li>
+                <li><a href="/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>
@@ -23,10 +24,38 @@
     <main>
         <section>
             <h2>Organizations</h2>
-
+            <div>
+                <ul class="list-group">
+                    <%data.forEach((item)=>{%>
+                    <li class="list-group-item">
+                      Id: <%=item.id%> &nbsp; Name: <%= item.oname%> &nbsp; Email:
+                      <%=item.odetails%>
+                    </li>
+                    <%});%>
+                  </ul>
+            </div>
         </section>
 
-        <button>Add an Org</button>
+        <section>
+            <h2>Update Org Details</h2>
+            <form action="/updateorgs" method="post">
+                <label for="orgId">Search By Org ID:</label>
+                <input type="text" name="orgId" placeholder="Enter the Orgs ID" required>
+                <br>
+                <label for="updateOrgDetails">Enter New details</label>
+                <input type="text" name="updateOrgDetails" placeholder="Details" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+
+            <h2>Delete Orgs</h2>
+            <form action="/deleteorg/" method="post">
+                <label for="orgIdent">Search By Org ID:</label>
+                <input type="text" name="orgIdent" placeholder="Enter the Orgs ID" required>
+                <br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
     </main>
 
     <footer>
