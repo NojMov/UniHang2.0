@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
         body {
             background: rgba(221, 221, 221, 0.637);
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 2;
+            line-height: 1;
         }
         h1 {
             color: rgb(240, 156, 0);
@@ -66,11 +66,26 @@ app.get('/', (req, res) => {
             font-size: 50px;
             text-align: center;
         }
+        p {
+            text-align: center;
+            margin: 40px;
+        }
+        section {
+            border-style: double;
+            margin: 15px;
+        }
     </style>
     <body>
-        <h1>Welcome to UniHang</h1>
-        <a href="/auth/google"> Login with Google </a>
-        <h2>Uni is short for University</h2>
+        <main>
+            <h1>Welcome to UniHang</h1>
+            <section>
+                <h2>Uni is short for University</h2>
+                <p> Come one come all! Login with any google account and see what UniHang holds!</p>
+                
+                <a href="/auth/google"> Login with Google </a>
+            </section>
+        </main>
+        <hr>
         <footer>&copy; UniHang</footer>
     </body>
     `)
@@ -109,7 +124,7 @@ app.post("/createorg", (req, res) => {
       if (err) {
         throw err;
       }
-      res.send(`student entry was inserted to the db...`);
+      res.send(`Org has been created`);
     });
   });
 
@@ -121,13 +136,9 @@ app.post("/createevent", (req, res) => {
             throw err;
             
         }
-        res.send(`We did it boys`)
+        res.send(`Event has been created`)
         console.log("it worked");
     });
-});
-
-app.get('/events', isLoggedIn, (req, res) => {
-    res.render('../views/events.ejs')
 });
 
 //logout function/route
@@ -144,7 +155,7 @@ app.post("/updateorgs", (req, res) => {
         if (err){
             throw err;
         }
-        res.send(`updated`);
+        res.send(`updated org`);
     });
 });
 
@@ -155,7 +166,7 @@ app.post("/updateevent", (req, res) => {
         if (err){
             throw err;
         }
-        res.send(`updated`);
+        res.send(`updated event`);
     });
 });
 

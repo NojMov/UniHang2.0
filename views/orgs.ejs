@@ -10,25 +10,26 @@
 </head>
 <body>
     <header>
-        <h1>UniHang</h1>
+        <a href="/">
+            <img src="../public/media/img/unihang_logo.jpg" alt="UniHang" class="logo">
+        </a>
+
         <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/events">Events</a></li>
-                <li><a href="/orgs">Orgs</a></li>
-                <li><a href="/logout">Log Out</a></li>
+            <ul id="nav">
+                <li class="navcontent"><a href="/home">Home</a></li>
+                <li class="navcontent"><a href="/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+        <section class="container">
             <h2>Organizations</h2>
             <div>
-                <ul class="list-group">
+                <ul>
                     <%data.forEach((item)=>{%>
-                    <li class="list-group-item">
-                      Id: <%=item.id%> &nbsp; Name: <%= item.oname%> &nbsp; Email:
+                    <li class="list">
+                      Id: <%=item.id%> &nbsp; Name: <%= item.oname%> &nbsp; Details:
                       <%=item.odetails%>
                     </li>
                     <%});%>
@@ -36,29 +37,35 @@
             </div>
         </section>
 
-        <section>
+        <section class="container">
             <h2>Update Org Details</h2>
-            <form action="/updateorgs" method="post">
+            <form action="/updateorgs/" method="post">
                 <label for="orgId">Search By Org ID:</label>
+                <br>
                 <input type="text" name="orgId" placeholder="Enter the Orgs ID" required>
                 <br>
                 <label for="updateOrgDetails">Enter New details</label>
-                <input type="text" name="updateOrgDetails" placeholder="Details" required>
                 <br>
-                <input type="submit" value="Submit">
+                <input type="text" name="updateOrgDetails" placeholder="Details" id="odetails" required>
+                <br>
+                <input type="submit" value="Submit" class="butt">
             </form>
 
-            <h2>Delete Orgs</h2>
+            <hr>
+
+            <h2>Delete Org</h2>
             <form action="/deleteorg/" method="post">
                 <label for="orgIdent">Search By Org ID:</label>
+                <br>
                 <input type="text" name="orgIdent" placeholder="Enter the Orgs ID" required>
                 <br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="butt">
             </form>
         </section>
     </main>
 
     <footer>
+        <hr>
         &copy; UniHang
     </footer>
     

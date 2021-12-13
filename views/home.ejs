@@ -52,21 +52,23 @@
             <form action="/createorg/" id="org_creation" method="post">
                 <div>
                   <label for="oname">Name of Org:</label>
+                  <br>
                   <input type="text" id="org" name="orgname" placeholder="e.g GrizzGang">
                 </div>
                 <div>
                   <label for="odetails">Org Details:</label>
+                  <br>
                   <input type="text" id="odetails" name="details" placeholder="e.g we like bears(max characters 255)">
                 </div>
                 <div>
-                    <input type="submit" value="Submit" id="button">
+                    <input type="submit" value="Submit" class="button">
                 </div>
               </form>
         </section>
 
         <div class="butsect">
-            <form action="/readOrgs" method="get" class="read-but">
-                <input type="submit" value="See Orgs" class="button"/>
+            <form action="/readOrgs" method="get">
+                <input type="submit" value="See Orgs" class="seebutt"/>
             </form>
         </div>
 
@@ -75,25 +77,28 @@
             <form action="/createevent/" id="event_creation" method="post">
                 <div>
                   <label for="ename">Name of Event:</label>
+                  <br>
                   <input type="text" name="evname" placeholder="e.g hangout sesh">
                 </div>
                 <div>
-                  <label for="edetails">Event Details:</label>
-                  <input type="text" name="evdetails" placeholder="e.g we going to eat(max characters 255)">
-                </div>
-                <div>
                     <label for="edate">Date of Event:</label>
+                    <br>
                     <input type="text" id="date" name="thedate" placeholder="e.g year/month/day">
                 </div>
                 <div>
-                    <input type="submit" value="Submit">
+                    <label for="edetails">Event Details:</label>
+                    <br>
+                    <input type="text" name="evdetails" id="edet" placeholder="e.g we going to eat(max characters 255)">
+                  </div>
+                <div>
+                    <input type="submit" value="Submit" class="button">
                 </div>
               </form>
         </section>
 
         <div class="butsect">
-            <form action="/readEvents/" method="get" class="read-but">
-                <input type="submit" value="See Events" class="button"/>
+            <form action="/readEvents/" method="get">
+                <input type="submit" value="See Events" class="seebutt"/>
             </form>
         </div>
     </main>

@@ -6,29 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniHang Events</title>
 
-    <link rel="stylesheet" href="../css/events.css">
+    <link rel="stylesheet" href="../public/css/events.css">
 </head>
 <body>
     <header>
-        <h1>UniHang</h1>
+        <a href="/">
+            <img src="../public/media/img/unihang_logo.jpg" alt="UniHang" class="logo">
+        </a>
+
         <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/events">Events</a></li>
-                <li><a href="/orgs">Orgs</a></li>
-                <li><a href="/logout">Log Out</a></li>
+            <ul id="nav">
+                <li class="navcontent"><a href="/home">Home</a></li>
+                <li class="navcontent"><a href="/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section>
+        <section class="container">
             <h2>Events</h2>
             <div>
-                <ul class="list-group">
+                <ul>
                     <%e1.forEach((item)=>{%>
-                    <li class="list-group-item">
-                      id: <%=item.id%> &nbsp; Name: <%= item.ename%> &nbsp; Email:
+                    <li class="list">
+                      id: <%=item.id%> &nbsp; Event: <%= item.ename%> &nbsp; Details:
                       <%=item.edetails%> &nbsp; Date: <%=item.edate%>
                     </li>
                     <%});%>
@@ -37,34 +38,40 @@
 
         </section>
 
-        <section>
+        <section class="container">
             <h2>Update Event Details</h2>
             <form action="/updateevent/" method="post">
                 <label for="eventId">Search By Org ID:</label>
+                <br>
                 <input type="text" name="eventId" placeholder="Event ID" required>
                 <br>
                 <label for="updateEDate">Enter New Date</label>
+                <br>
                 <input type="text" name="updateEDate" placeholder="e.g yyyy/mm/dd" required>
                 <br>
                 <label for="updateEDetails">Enter New details</label>
-                <input type="text" name="updateEDetails" placeholder="Details" required>
                 <br>
-                <input type="submit" value="Submit">
+                <input type="text" name="updateEDetails" placeholder="Details" id="edetails" required>
+                <br>
+                <input type="submit" value="Submit" class="butt">
             </form>
+
+            <hr>
 
             <h2>Delete Event</h2>
             <form action="/deleteevent/" method="post">
                 <label for="eIdent">Search By Org ID:</label>
+                <br>
                 <input type="text" name="eIdent" placeholder="Enter the Events ID" required>
                 <br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="butt">
             </form>
         </section>
 
-        <button>Add an Event</button>
     </main>
 
     <footer>
+        <hr>
         &copy; UniHang
     </footer>
 </body>
